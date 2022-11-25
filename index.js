@@ -106,8 +106,21 @@ console.log(CarOne.drive(120));
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
+
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
+Baby.prototype = Object.create(Person);
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
+}
+const BabyOne = new Baby({
+  name: 'Musu',
+  age: 3,
+  favoriteToy: 'Rocking Chair'
+})
+console.log(BabyOne());
 
 /* 
   TASK 4
