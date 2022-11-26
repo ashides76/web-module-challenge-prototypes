@@ -111,24 +111,20 @@ function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 }
-Baby.prototype = Object.create(Person);
+Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function() {
-  return `Playing with ${this.favoriteToy}`
+  return `${this.name} is playing with ${this.favoriteToy}`
 }
-const BabyOne = new Baby({
-  name: 'Musu',
-  age: 3,
-  favoriteToy: 'Rocking Chair'
-})
-console.log(BabyOne());
-
+const BabyOne = new Baby('Musu', 3, 'Rocking Chair');
+console.log(BabyOne);
+console.log(BabyOne.play());
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Implicit Binding - when the function is invoked, look to the left of the dot, that's what 'this' refers to 
+  2. Global (window) binding - is NOT something we aim to use.
+  3. EXPLICIT BINDING - call/apply will immidiatly invoke the function, BIND will returns a brand new function that can be invoked later
+  4. PROTOTYPE AND CONSTRUCTOR FUNCTIONS - constructor function construct other object and gives us the ability to pass methods across objects
 */
 
 ///////// END OF CHALLENGE /////////
